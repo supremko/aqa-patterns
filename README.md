@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/91fhphgjdyy74g1i?svg=true)](https://ci.appveyor.com/project/supremko/aqa-selenide)
