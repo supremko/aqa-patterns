@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class Delivery {
     private LocalDate localDate = LocalDate.now();
     private String formatNow = localDate.format(DateTimeFormatter.ofPattern("dd.MM.YYYY"));
-    private String formatPlusDays = localDate.plusDays(5).format(DateTimeFormatter.ofPattern("dd.MM.YYYY"));
+    private String formatPlusDays = localDate.plusDays(7).format(DateTimeFormatter.ofPattern("dd.MM.YYYY"));
     private SelenideElement form = $("form");
     private SelenideElement replan = $("[data-test-id='replan-notification']");
     private String url = "http://localhost:9999";
@@ -41,7 +41,7 @@ public class Delivery {
         form.$("[data-test-id=agreement]").click();
         form.$("[class='button__content']").click();
 //        if (replan.waitUntil(visible,1000).isDisplayed()) {
-            replan.$("button").shouldHave(exactText("Перепланировать")).click();
+            replan.waitUntil(visible,1500).$("[class='button__content']").click();
 //        }
         $("[data-test-id='success-notification']").waitUntil(visible, 5000);
     }
