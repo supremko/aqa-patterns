@@ -11,9 +11,10 @@ import static com.codeborne.selenide.Selenide.*;
 public class Delivery {
     private SelenideElement form = $("form");
     private LocalDate localDate = LocalDate.now();
-    private String formatDate = localDate.format(DateTimeFormatter.ofPattern("dd.MM.YYYY"));
-    private String formatDatePlus3 = localDate.plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.YYYY"));
-    private String formatDatePlus5 = localDate.plusDays(5).format(DateTimeFormatter.ofPattern("dd.MM.YYYY"));
+    private DateTimeFormatter format = DateTimeFormatter.ofPattern("dd.MM.YYYY");
+    private String formatDate = localDate.format(format);
+    private String formatDatePlus3 = localDate.plusDays(3).format(format);
+    private String formatDatePlus5 = localDate.plusDays(5).format(format);
 
     public void checkPositiveDate(Info.AuthInfo authInfo) {
         open(authInfo.getUrl());
